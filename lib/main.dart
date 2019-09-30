@@ -29,24 +29,24 @@ class _QuizPageState extends State<QuizPage> {
   QuizBrain quizBrain = QuizBrain();
   List<Icon> scoreKeeper = [];
 
-  Icon trueIcon = new Icon(
+  Icon correctIcon = new Icon(
     Icons.check,
     color: Colors.green,
   );
-  Icon falseIcon = new Icon(
+  Icon incorrectIcon = new Icon(
     Icons.close,
     color: Colors.red,
   );
 
-  checkAnswer(bool userPickedAnswer) {
+  void checkAnswer(bool userPickedAnswer) {
     setState(() {
       if (userPickedAnswer == quizBrain.getCorrectAnswer()) {
         scoreKeeper.add(
-          trueIcon,
+          correctIcon,
         );
       } else {
         scoreKeeper.add(
-          falseIcon,
+          incorrectIcon,
         );
       }
       quizBrain.nextQuestion();
