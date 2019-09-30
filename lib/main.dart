@@ -50,10 +50,12 @@ class _QuizPageState extends State<QuizPage> {
           incorrectIcon,
         );
       }
-      if (!quizBrain.nextQuestion()) {
+      if (quizBrain.isFinished()) {
         _endOfQuizAlert(context);
-        quizBrain.restartQuiz();
+        quizBrain.reset();
         scoreKeeper = [];
+      } else {
+        quizBrain.nextQuestion();
       }
     });
   }

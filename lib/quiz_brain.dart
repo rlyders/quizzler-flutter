@@ -39,16 +39,19 @@ class QuizBrain {
     return _questionBank[_questionNumber].questionAnswer;
   }
 
-  bool nextQuestion() {
+  void nextQuestion() {
     if (_questionNumber < getTotalQuestionCount() - 1) {
       _questionNumber++;
-      return true;
-    } else {
-      return false;
-    }
+    } else {}
   }
 
-  void restartQuiz() {
+  bool isFinished() {
+    bool finished = _questionNumber >= getTotalQuestionCount() - 1;
+    print('isFinished = $finished');
+    return finished;
+  }
+
+  void reset() {
     _questionNumber = 0;
   }
 
